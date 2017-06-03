@@ -1,8 +1,9 @@
 ---
 layout: default
-img: ipad.png
+img: noths.png
+source: https://github.com/notonthehighstreet
 category: Services
-title: Death to the Stock Photo:<br>Special Thanks
+title: Ruby on Rails Project:<br>notonthehighstreet.com
 description: |
 ---
-  A special thanks to [Death to the Stock Photo](http://join.deathtothestockphoto.com/) for providing the photographs that you see in this template.  Visit their website to become a member!
+[notonthehighstreet.com](https://www.notonthehighstreet.com) is an ecommerce marketplace. The tech stack is primarily Ruby on Rails but also includes Node, ES6, Java and Swift. I have worked across the company in a number of areas, using a range of technologies and software design patterns. The architecture is moving towards away from a monolithic application towards a microservices architecture.

@@ -1,7 +1,7 @@
 ---
 layout: default
 img: mandelbrot.png
-source: source/javaexample.zip
+source: source/MandelbrotGUI.zip
 category: Services
 title: Java Project:<br>Mandelbrot Set GUI
 description: |

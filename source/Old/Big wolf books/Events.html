@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Events</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#0E979D;
+            }
+            #content{
+                top:-30px;
+            }            
+            div.ui-datepicker{
+                font-size:20px;
+            }
+            table.ui-datepicker-calendar tbody td.highlight > a {
+                background: #22bb22;
+                color: black;
+                border: 1px solid #008000;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            var events = [
+                {Title: "9:30 - Julia Donaldson book signing in Bath", Date: new Date("07/05/2014"), Info: "Come and meet Julia the author of 'The Gruffalo' and 'A Squash and a Squeeze' who is doing book signings for her new title 'Room on the Broom' in the Bath Waterstones."},
+                {Title: "10:00 - Axel Scheffler & Quentin Blake illustration class in Bristol", Date: new Date("06/25/2014"), Info: "The incredible artists Axel Scheffler and Quentin Blake are running a 3 hour illustration class in the city known for its lively art scene - Bristol. This session is run at Bristol University, contact us for more information."},
+                {Title: "14:00 - J.K. Rowling book signing in Southampton", Date: new Date("06/06/2014"), Info: "Come and meet J.K. Rowling the author of hugely poular Harry Potter series who is doing book signings for her new title 'The Casual Vacancy' in the Southampton Waterstones."}
+            ];
+
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";    
+                document.getElementsByTagName("body")[0].style.color = "yellow"; 
+            }
+            function toggleContrast(){   
+                if(!on){
+                    on=true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else{
+                    on=false;
+                    document.getElementsByTagName("body")[0].style.background = "#0E979D";  
+                    document.getElementsByTagName("body")[0].style.color = "black";  
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html" style="color:#0E979D">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/jack.png" width="1100" alt="" />
+                </div>
+            </div>
+
+            <div id="content">
+
+                <h1>Events</h1>
+                <p>We run all sorts of events all over the UK, including book signings, writing courses and illustration workshops and courses. We run a number of events but also have a lot of experience with running session in schools and for community events.</p>
+                <p>For more information email Ellie Hamilton at eh14g13@soton.ac.uk or call 01225 300 300.</p>
+
+                <div id="calendar"><h3>Check out our calendar of events</h3></div>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#calendar").datepicker({minDate: 0,
+                            beforeShowDay: function(date) {
+                                var result = [true, '', null];
+                                var matching = $.grep(events, function(event) {
+                                    return event.Date.valueOf() === date.valueOf();
+                                });
+                                if (matching.length) {
+                                    result = [true, 'highlight', null];
+                                }
+                                return result;
+                            },
+                            onSelect: function(dateText) {
+                                var date, selectedDate = new Date(dateText),
+                                        i = 0,
+                                        event = null;
+                                while (i < events.length && !event) {
+                                    date = events[i].Date;
+
+                                    if (selectedDate.valueOf() === date.valueOf()) {
+                                        event = events[i];
+                                    }
+                                    i++;
+                                }
+                                if (event) {
+                                    var m = parseInt(event.Date.getMonth()) + 1;
+                                    $("#event").html(event.Date.getDate() + "/" + m + "/" + event.Date.getFullYear());
+                                    $("#event2").html(event.Title);
+                                    $("#event3").html(event.Info);
+                                   
+                                }
+                                else{
+                                    $("#event").html(" ");
+                                    $("#event2").html(" ");
+                                    $("#event3").html(" ");
+                                }
+                            }
+                        });
+                    });
+                </script>
+
+                <div id="events">
+                    <h3 id="event" ></h3>
+                    <h3 id="event2" ></h3>
+                    <p id="event3"> </p>
+                </div>
+                <div id="signup">
+                    <h3>Sign up for updates about our events</h3>
+                    <form method="get" action="Events.html" onsubmit="return validateForm(this)">
+                    <p>Name: <input id="formName" type="text" name="name" /> </p>
+                    <p>Email: <input id="formEmail" type="text" name="email" /> </p>
+                    <input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" type="submit" value="Sign up"/>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

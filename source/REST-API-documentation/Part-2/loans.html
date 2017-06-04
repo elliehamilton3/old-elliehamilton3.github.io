@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>ECS Library API | Loans</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/owl.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/et-icons.css">
+        <link rel="stylesheet" type="text/css" href="css/tooltip.css">
+        <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+        <link id="main" rel="stylesheet" type="text/css" href="css/publisher.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/styles/desert.css">
+
+         <style>
+            nav{
+                width:25%;
+                float: left;
+                height:100%;
+            }
+           .navbar-default .navbar-nav > li {
+               margin-left: 0px;
+               float:none;
+                
+            }
+            .navbar-default .navbar-nav > li > a {
+                font-size: 14px;
+            }
+            .navbar-default .navbar-nav > li > a {
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+           
+            section{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            header{
+                background: #484d53;
+                height:auto;
+                padding-top:20px;
+                padding-bottom: 30px;
+            }
+            table { 
+                border-collapse: collapse; 
+            }
+            td{
+                padding:10px;
+                padding-left: 20px
+            }
+            tr{
+                border-bottom: 1px solid lightgray;
+            }
+            h3{
+                font-size: 20px;
+            }
+            h2.heading{
+                color:#7cc576;
+            }
+            .code-font{
+                font-family: 'Roboto Mono', ;
+            }
+            .code-font.small{
+                font-size: 14px;
+                line-height: 20px;
+            }
+            p.small{
+                font-size: 14px;
+                line-height: 20px;
+                margin: 10px 0;
+            }
+            .subheading{
+                font-size: 18px;
+                line-height: 24px;
+                margin-top:0px;
+                margin-bottom: 0px;
+            }
+            pre .tag { color: #7cc576; font-weight: bold } /* html/xml tag  */
+            .container{
+                width:auto;
+            }
+            .content{
+                width:75%;
+                float: left;
+                padding-right: 5%;
+            }
+            @media (max-width: 900px) {
+                nav{
+                    width:300px;
+                }
+                .content{
+                    width:400px;
+                    padding-right: 0px;
+                }
+            }
+            .sub-nav{
+                font-size: 11px;
+            }
+            .sub-nav li{
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="behind">
+            <header style="height:auto;">
+                <div class="container">
+                    <h1 class="heading">ECS Library <span style="color:#7cc576;">API</span></h1>
+                </div>
+            </header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <ul class="nav navbar-nav main-nav ">
+                        <li><a href="books.html" class="scrollto">books</a>
+                        </li>
+                        <li><a href="booksnum.html" class="scrollto">books/&lt;book-id&gt;</a>
+                        </li>
+                         <li><a href="users.html" class="scrollto">users</a>
+                           
+                        </li>
+                        <li><a href="usersnum.html" class="scrollto">users/&lt;user-id&gt;</a>
+                           
+                        </li>
+                        <li><a href="loans.html" class="scrollto">users/&lt;user-id&gt;/loans</a>
+                            <ul class="nav sub-nav">
+                                <li><a href="#loansget" class="scrollto">GET .../loans</a></li>
+                                <li><a href="#loanshead" class="scrollto">HEAD .../loans</a></li>
+                                <li><a href="#loansoptions" class="scrollto">OPTIONS .../loans</a></li>
+                                <li><a href="#loanspost" class="scrollto">POST .../loans</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="loansnum.html" class="scrollto">users/&lt;user-id&gt;/loans/&lt;loans-id&gt;</a>
+                         
+                        </li>
+                        <li><a href="fines.html" class="scrollto">fines</a>
+                        </li>
+                        <li><a href="finesnum.html" class="scrollto">fines/&lt;fine-id&gt;</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <div class="content">
+                
+                <section id="loans">
+                    <div class="container">
+                        <h2 class="heading">users/&lt;user-id&gt;/loans</h2>
+                        <h3 class="heading">URI Template</h3>
+                        <p class="small code-font">http://waisvm-rfp1.ecs.soton.ac.uk/users/&lt;user-id&gt;/loans</p>
+                        <h3 class="heading">URI Parameters</h3>
+                        <table>
+                            <tr>
+                                <td><p class="heading small">user-id</p><p class="subheading small">required</p></td>
+                                <td><p class="small">The URI Parameter &lt;user-id&gt; takes a number which corresponds to the id assigned to the user. This is automatically assigned by the system to be the first available id in the system which is not already being used. This allows for id's which may have been freed up following the delete of a user.</p><p class="heading small">Example value: 2</p></td>
+                            </tr>
+                        </table>
+                        <h3 class="heading">HTTP Methods<h3>
+                        <p class="small code-font">GET, HEAD, OPTIONS, POST</p>
+                        <h3 class="heading">Response Formats</h3>
+                        <table>
+                            <tr>
+                                <td>Renders Formats</td>
+                                <td>XML, JSON, TEXT/CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Parses Formats</td>
+                                <td>XML, JSON, TEXT/CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Requires Authentication?</td>
+                                <td>Yes - for a POST Request only</td>
+                            </tr>
+                        </table>
+                        <h3 class="heading">Example Output</h3>
+                        <h4 class="heading code-font" id="loansget">GET /users/1/loans</h4>
+                        <p class="small">Returns a list of all the loans in the system for /users/1 with all information about each of the loans including the url link to the page for each specific loan.</p>
+                        <p class="small">When doing a GET request on the list of loans if the current date is after the date set in due date then a fine is created or updated and set to 10p for each day the loan is late. The fine is created or updated using a POST or a PATCH request to /fines. If there is a fine to be paid on the loan then the fine field returns a link to a fine as in /fines/&lt;fine-id&gt; otherwise returns empty when a GET request is done.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+                        <p class="small">If a GET (or POST) request is done to a loans page with a user-id which doesn't exist then returns <span class="code-font"> 404 NOT FOUND</span>.</p>
+                        <p class="heading small">Headers</p>
+                        <p class="heading small">Accept: application/xml;(Default)</p>
+<pre class="prettyprint language-html">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+    &lt;message&gt;Reminder: you can only loan up to 10 books at any one time, so if you would like to loan another book you will first need to return one of the books you already have on loan. You can 'return a book' by doing a DELETE request to a loan (as long as the loan doesn't have a fine on it).&lt;/message&gt;
+    &lt;list-item&gt;
+        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1&lt;/url&gt;
+        &lt;book&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/1&lt;/book&gt;
+        &lt;due_date&gt;2015-12-01&lt;/due_date&gt;
+        &lt;times_extended&gt;3&lt;/times_extended&gt;
+        &lt;fine&gt;http://waisvm-rfp1.ecs.soton.ac.uk/fines/34&lt;/fine&gt;
+        &lt;owner&gt;eh14g13&lt;/owner&gt;
+    &lt;/list-item&gt;
+    ...
+    ...
+    &lt;list-item&gt;
+        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/10&lt;/url&gt;
+        &lt;book&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/23&lt;/book&gt;
+        &lt;due_date&gt;2016-01-01&lt;/due_date&gt;
+        &lt;times_extended&gt;&lt;/times_extended&gt;
+        &lt;fine&gt;&lt;/fine&gt;
+        &lt;owner&gt;eh14g13&lt;/owner&gt;
+    &lt;/list-item&gt;
+&lt;/root&gt;
+</pre>
+                        <p class="heading small">Accept: application/json;</p>
+<pre class="prettyprint language-js">
+[
+    "message": "Reminder: you can only loan up to 10 books at any one time, so if you would like to loan another book you will first need to return one of the books you already have on loan. You can 'return a book' by doing a DELETE request to a loan (as long as the loan doesn't have a fine on it).",
+    {
+        "url": "http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1",
+        "book": "http://waisvm-rfp1.ecs.soton.ac.uk/books/1",
+        "due_date": 2015-12-01,
+        "times_extended": "3",
+        "fine": "http://waisvm-rfp1.ecs.soton.ac.uk/fines/34",
+        "owner": "eh14g13"
+    },
+    ...
+    ...
+    {
+        "url": "http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/10",
+        "book": "http://waisvm-rfp1.ecs.soton.ac.uk/books/23",
+        "due_date": 2016-01-01,
+        "times_extended": "",
+        "fine": "",
+        "owner": "eh14g13"
+    }
+]
+</pre>
+
+                        <p class="heading small">Accept: text/csv;</p>
+<pre class="prettyprint language-html">
+message
+Reminder: you can only loan up to 10 books at any one time, so if you would like to loan another book you will first need to return one of the books you already have on loan. You can 'return a book' by doing a DELETE request to a loan (as long as the loan doesn't have a fine on it).
+url,book,due_date,times_extended,fine,owner
+http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1,http://waisvm-rfp1.ecs.soton.ac.uk/books/1,2015-12-01,3,http://waisvm-rfp1.ecs.soton.ac.uk/fines/34,eh14g13
+...
+...
+http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/10,http://waisvm-rfp1.ecs.soton.ac.uk/books/23,2016-01-01,,,eh14g13
+</pre>
+						<h4 class="heading code-font" id="loanshead">HEAD /users/1/loans</h4>
+                        <p class="small">Same as GET but returns only HTTP headers and no document body.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+<pre class="prettyprint language-html">
+Allow &rarr; GET, POST, HEAD, OPTIONS
+Connection &rarr; Keep-Alive
+Content-Type &rarr; application/xml; charset=utf-8
+Date &rarr; Sun, 08 Nov 2015 17:57:02 GMT
+Keep-Alive &rarr; timeout=5, max=100
+Server &rarr; Apache/2.2.22 (Ubuntu)
+Vary &rarr; Accept
+X-Frame-Options &rarr; SAMEORIGIN
+</pre>
+                        <h4 class="heading code-font" id="loansoptions">OPTIONS /users/1/loans</h4>
+                        <p class="small">Returns information about the formats which are rendered and parsed by the loans page.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+                        <pre class="prettyprint language-html">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+    &lt;name&gt;Loan List&lt;/name&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;renders&gt;
+        &lt;list-item&gt;application/xml&lt;/list-item&gt;
+        &lt;list-item&gt;application/json&lt;/list-item&gt;
+        &lt;list-item&gt;text/csv&lt;/list-item&gt;
+    &lt;/renders&gt;
+    &lt;parses&gt;
+        &lt;list-item&gt;application/xml&lt;/list-item&gt;
+        &lt;list-item&gt;application/json&lt;/list-item&gt;
+        &lt;list-item&gt;text/csv&lt;/list-item&gt;
+    &lt;/parses&gt;
+    &lt;actions&gt;
+        &lt;POST&gt;
+            &lt;url&gt;
+                &lt;type&gt;field&lt;/type&gt;
+                &lt;required&gt;False&lt;/required&gt;
+                &lt;read_only&gt;True&lt;/read_only&gt;
+                &lt;label&gt;Url&lt;/label&gt;
+            &lt;/url&gt;
+            &lt;book&gt;
+                &lt;type&gt;field&lt;/type&gt;
+                &lt;required&gt;True&lt;/required&gt;
+                &lt;read_only&gt;True&lt;/read_only&gt;
+                &lt;label&gt;Book&lt;/label&gt;
+                &lt;choices&gt;
+                    &lt;list-item&gt;
+                        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/1&lt;/url&gt;
+                        &lt;title&gt;REST in Practice&lt;/title&gt;
+                        &lt;pages&gt;448&lt;/pages&gt;
+                        &lt;isbn13&gt;9780596805821&lt;/isbn13&gt;
+                        &lt;date_published&gt;2010-09-01&lt;/date_published&gt;
+                        &lt;authors&gt;
+                            &lt;list-item&gt;http://waisvm-rfp1.ecs.soton.ac.uk/authors/1&lt;/list-item&gt;
+                            &lt;list-item&gt;http://waisvm-rfp1.ecs.soton.ac.uk/authors/2&lt;/list-item&gt;
+                            &lt;list-item&gt;http://waisvm-rfp1.ecs.soton.ac.uk/authors/3&lt;/list-item&gt;
+                        &lt;/authors&gt;
+                        &lt;publisher&gt;http://waisvm-rfp1.ecs.soton.ac.uk/publishers/1&lt;/publisher&gt;
+                        &lt;owner&gt;rfp1n11&lt;/owner&gt;
+                    &lt;/list-item&gt;
+                    &lt;list-item&gt;
+                        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/2&lt;/url&gt;
+                        &lt;title&gt;Composition No. 1&lt;/title&gt;
+                        &lt;pages&gt;155&lt;/pages&gt;
+                        &lt;isbn13&gt;9780956569226&lt;/isbn13&gt;
+                        &lt;date_published&gt;2011-08-11&lt;/date_published&gt;
+                        &lt;authors&gt;
+                            &lt;list-item&gt;http://waisvm-rfp1.ecs.soton.ac.uk/authors/4&lt;/list-item&gt;
+                        &lt;/authors&gt;
+                        &lt;publisher&gt;http://waisvm-rfp1.ecs.soton.ac.uk/publishers/2&lt;/publisher&gt;
+                        &lt;owner&gt;rfp1n11&lt;/owner&gt;
+                    &lt;/list-item&gt;
+                    ...
+                    ...
+                   &lt;list-item&gt;
+                        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/290&lt;/url&gt;
+                        &lt;title&gt;The Hunchback of Notre Dame&lt;/title&gt;
+                        &lt;pages&gt;234&lt;/pages&gt;
+                        &lt;isbn13&gt;97835982&lt;/isbn13&gt;
+                        &lt;date_published&gt;2013-09-23&lt;/date_published&gt;
+                        &lt;authors&gt;
+                            &lt;list-item&gt;http://waisvm-rfp1.ecs.soton.ac.uk/authors/2&lt;/list-item&gt;
+                        &lt;/authors&gt;
+                        &lt;publisher&gt;http://waisvm-rfp1.ecs.soton.ac.uk/publishers/2&lt;/publisher&gt;
+                        &lt;owner&gt;clj2g12&lt;/owner&gt;
+                    &lt;/list-item&gt;
+                &lt;/choices&gt;
+            &lt;/book&gt;
+            &lt;due_date&gt;
+                &lt;type&gt;date&lt;/type&gt;
+                &lt;required&gt;False&lt;/required&gt;
+                &lt;read_only&gt;False&lt;/read_only&gt;
+                &lt;label&gt;Due date&lt;/label&gt;
+            &lt;/due_date&gt;
+            &lt;times_extended&gt;
+                &lt;type&gt;string&lt;/type&gt;
+                &lt;required&gt;False&lt;/required&gt;
+                &lt;read_only&gt;False&lt;/read_only&gt;
+                &lt;label&gt;Times extended&lt;/label&gt;
+            &lt;/times_extended&gt;
+            &lt;fine&gt;
+                &lt;type&gt;string&lt;/type&gt;
+                &lt;required&gt;False&lt;/required&gt;
+                &lt;read_only&gt;False&lt;/read_only&gt;
+                &lt;label&gt;Fine&lt;/label&gt;
+            &lt;/fine&gt;
+            &lt;owner&gt;
+                &lt;type&gt;field&lt;/type&gt;
+                &lt;required&gt;False&lt;/required&gt;
+                &lt;read_only&gt;True&lt;/read_only&gt;
+                &lt;label&gt;Owner&lt;/label&gt;
+            &lt;/owner&gt;
+        &lt;/POST&gt;
+    &lt;/actions&gt;
+&lt;/root&gt;
+</pre>
+                        <h3 class="heading">Example Input (for modifying a resource)</h3>
+                        <h4 class="heading code-font" id="loanspost">POST /users/1/loans</h4>
+                        <p class="small">An example of the input needed for a POST request including some fields which can be used but are not required.</p>
+                        <p class="small">Prior to doing a POST request a check is done to see if there are less than 10 loans in the list of loans for that particular user and that none of the loans have a fine set on them otherwise the user should not be allowed to take out any more loans. If the user already has 10 loans taken out then returns: <span class="code-font"> 400 BAD REQUEST</span> and redirects them to the /users/&lt;user-id&gt;/loans page which has on it a reminder that they can only loan 10 books at a time and if they want to loan another book they will first have to return one they already have. If there is a fine on one of the loans that a users has then returns: <span class="code-font"> 402 PAYMENT REQUIRED </span> the relatively new and unused status code. It redirects the user to the fine page to pay the fine at /fines/&lt;fine-id&gt; using the link given in the fine field of the loan and then the fine is paid using a DELETE request.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 201 CREATED</span> if a loan is successfully taken out/created or if no access token or incorrect access token<span class="code-font"> 401 UNAUTHORIZED</span></p>
+                        <p class="small">If a POST request is done to a loans page with a user-id which doesn't exist then returns <span class="code-font"> 404 NOT FOUND</span>.</p>
+                        <p class="small">If the book sent in the loan request is already on loan (accessed by a GET request to the book returning the fields) then the request returns: <span class="code-font"> 403 FORBIDDEN</span>.</p>
+                        <p class="small">Owner set to you automatically using the Token</p>
+                        <p class="small">Format: raw</p>
+                        <p class="heading small">Headers</p>
+                        <p class="heading small">Content-Type: application/xml;</p>
+                        
+<pre class="prettyprint language-html">
+&lt;root&gt;
+    &lt;book&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/45&lt;/book&gt;
+&lt;/root&gt;
+</pre>
+                        <p class="heading small">Content-Type: application/json;</p>
+<pre class="prettyprint language-js">
+{
+    "book": "http://waisvm-rfp1.ecs.soton.ac.uk/books/45",
+}
+</pre>
+                    <p class="heading small">Content-Type: text/csv;</p>
+<pre class="prettyprint language-html">
+book
+http://waisvm-rfp1.ecs.soton.ac.uk/books/45
+</pre>
+                        <p class="small">When an empty post request is sent returns information about the fields that must be included in a POST HTTP request.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 400 BAD REQUEST</span> if required content is not sent or if it is not sent in the required format(s) or if the /books/45 doesn't exist.</p>
+                        <pre class="prettyprint language-html">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+    &lt;book&gt;
+        &lt;list-item&gt;This field is required.&lt;/list-item&gt;
+    &lt;/book&gt;
+&lt;/root&gt;
+</pre>
+                    </div>
+                </section>
+                
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 text-left text-center-mobile">
+                            <p class="copyright small muted">Copyright &copy; 2015 Bukku Template - All rights reserved!</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.onepagenav.js"></script>
+        <script src="js/core.js"></script>
+        <script src="js/tooltip.js"></script>
+        <script src="js/jquery.form-validator.js"></script>
+        <script src="js/preloader.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

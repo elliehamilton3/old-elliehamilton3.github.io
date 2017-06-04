@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>ECS Library API | Loans/&lt;number&gt;</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/owl.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/et-icons.css">
+        <link rel="stylesheet" type="text/css" href="css/tooltip.css">
+        <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+        <link id="main" rel="stylesheet" type="text/css" href="css/publisher.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/styles/desert.css">
+
+         <style>
+            nav{
+                width:25%;
+                float: left;
+                height:100%;
+            }
+           .navbar-default .navbar-nav > li {
+               margin-left: 0px;
+               float:none;
+                
+            }
+            .navbar-default .navbar-nav > li > a {
+                font-size: 14px;
+            }
+            .navbar-default .navbar-nav > li > a {
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+           
+            section{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            header{
+                background: #484d53;
+                height:auto;
+                padding-top:20px;
+                padding-bottom: 30px;
+            }
+            table { 
+                border-collapse: collapse; 
+            }
+            td{
+                padding:10px;
+                padding-left: 20px
+            }
+            tr{
+                border-bottom: 1px solid lightgray;
+            }
+            h3{
+                font-size: 20px;
+            }
+            h2.heading{
+                color:#7cc576;
+            }
+            .code-font{
+                font-family: 'Roboto Mono', ;
+            }
+            .code-font.small{
+                font-size: 14px;
+                line-height: 20px;
+            }
+            p.small{
+                font-size: 14px;
+                line-height: 20px;
+                margin: 10px 0;
+            }
+            .subheading{
+                font-size: 18px;
+                line-height: 24px;
+                margin-top:0px;
+                margin-bottom: 0px;
+            }
+            pre .tag { color: #7cc576; font-weight: bold } /* html/xml tag  */
+            .container{
+                width:auto;
+            }
+            .content{
+                width:75%;
+                float: left;
+                padding-right: 5%;
+            }
+            @media (max-width: 900px) {
+                nav{
+                    width:300px;
+                }
+                .content{
+                    width:400px;
+                    padding-right: 0px;
+                }
+            }
+            .sub-nav{
+                font-size: 11px;
+            }
+            .sub-nav li{
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="behind">
+            <header style="height:auto;">
+                <div class="container">
+                    <h1 class="heading">ECS Library <span style="color:#7cc576;">API</span></h1>
+                </div>
+            </header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <ul class="nav navbar-nav main-nav ">
+                        <li><a href="books.html" class="scrollto">books</a>
+                           
+                        </li>
+
+                        <li><a href="booksnum.html" class="scrollto">books/&lt;book-id&gt;</a>
+                        </li>
+                         <li><a href="users.html" class="scrollto">users</a>
+                           
+                        </li>
+                        <li><a href="usersnum.html" class="scrollto">users/&lt;user-id&gt;</a>
+                           
+                        </li>
+                        <li><a href="loans.html" class="scrollto">users/&lt;user-id&gt;/loans</a>
+                        
+                        </li>
+
+                        <li><a href="loansnum.html" class="scrollto">users/&lt;user-id&gt;/loans/&lt;loan-id&gt;</a>
+                            <ul class="nav sub-nav">
+                                <li><a href="#loansnumget" class="scrollto">GET .../loans/&lt;loan-id&gt;</a></li>
+                                <li><a href="#loansnumhead" class="scrollto">HEAD .../loans/&lt;loan-id&gt;</a></li>
+                                <li><a href="#loansnumdelete" class="scrollto">DELETE .../loans/&lt;loan-id&gt;</a></li>
+                                <li><a href="#loansnumoptions" class="scrollto">OPTIONS .../loans/&lt;loan-id&gt;</a></li>
+                                <li><a href="#loansnumpatch" class="scrollto">PATCH .../loans/&lt;loan-id&gt;</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="fines.html" class="scrollto">fines</a>
+                        </li>
+                        <li><a href="finesnum.html" class="scrollto">fines/&lt;fine-id&gt;</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="content">
+                
+                <section id="loansnum">
+                    <div class="container">
+                        <h2 class="heading">users/&lt;user-id&gt;/loans/&lt;loan-id&gt;</h2>
+                        <h3 class="heading">URI Template</h3>
+                        <p class="small code-font">http://waisvm-rfp1.ecs.soton.ac.uk/users/&lt;user-id&gt;/loans/&lt;loan-id&gt;</p>
+                        <h3 class="heading">URI Parameters</h3>
+                        <table>
+                            <tr>
+                                <td><p class="heading small">user-id</p><p class="subheading small">required</p></td>
+                                <td><p class="small">The URI Parameter &lt;user-id&gt; takes a number which corresponds to the id assigned to the user. This is automatically assigned by the system to be the first available id in the system which is not already being used. This allows for id's which may have been freed up following the delete of a user.</p><p class="heading small">Example value: 2</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="heading small">loan-id</p><p class="subheading small">required</p></td>
+                                <td><p class="small">The URI Parameter &lt;loan-id&gt; takes a number which corresponds to the id assigned to the loan. This is automatically assigned by the system to be the first available id in the system which is not already being used. This allows for id's which may have been freed up following the delete of a loan.</p><p class="heading small">Example value: 1</p></td>
+                            </tr>
+                        </table>
+                        <h3 class="heading">HTTP Methods</h3>
+                        <p class="small code-font">GET, PATCH, DELETE, HEAD, OPTIONS</p>
+                        <h3 class="heading">Response Formats</h3>
+                        <table>
+                            <tr>
+                                <td>Renders Formats</td>
+                                <td>XML, JSON, TEXT/CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Parses Formats</td>
+                                <td>XML, JSON, TEXT/CSV</td>
+                            </tr>
+                            <tr>
+                                <td>Requires Authentication?</td>
+                                <td>Yes - for PATCH and DELETE requests</td>
+                            </tr>
+                        </table>
+                        <h3 class="heading">Example Output</h3>
+                        <h4 class="heading code-font" id="loansnumget">GET users/1/loans/1</h4>
+                        <p class="small">Returns information about the loan located at /loans/1 for users/1 with all of the information fields including link to specific page for the book, the due date and the number if times the loan has been extended if at all and a link to the fine page at /fines/&lt;fine-id&gt; if there is a fine to paid otherwise returns empty.</p>
+                        <p class="small">When doing a GET request on a particular loan (which may be done prior to adding a new loan) if the current date is after the date set in due date then a fine is created or updated and set to 10p for each day the loan is late. The fine is created or updated using a POST or a PATCH request to /fines.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+                        <p class="heading small">Headers</p>
+                        <p class="heading small">Accept: application/xml; (Default)</p>
+<pre class="prettyprint language-html">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+    &lt;list-item&gt;
+        &lt;url&gt;http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1&lt;/url&gt;
+        &lt;book&gt;http://waisvm-rfp1.ecs.soton.ac.uk/books/1&lt;/book&gt;
+        &lt;due_date&gt;2015-12-01&lt;/due_date&gt;
+        &lt;times_extended&gt;3&lt;/times_extended&gt;
+        &lt;fine&gt;http://waisvm-rfp1.ecs.soton.ac.uk/fines/2&lt;/fine&gt;
+        &lt;owner&gt;eh14g13&lt;/owner&gt;
+    &lt;/list-item&gt;
+&lt;/root&gt;
+</pre>
+                        <p class="heading small">Accept: application/json;</p>
+<pre class="prettyprint language-js">
+{
+    "url": "http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1",
+    "book": "http://waisvm-rfp1.ecs.soton.ac.uk/books/1",
+    "due_date": 2015-12-01,
+    "times_extended": "3",
+    "fine": "http://waisvm-rfp1.ecs.soton.ac.uk/fines/2",
+    "owner": "eh14g13"
+}
+</pre>
+                        <p class="heading small">Accept: text/csv;</p>
+<pre class="prettyprint language-html">
+url,book,due_date,times_extended,fine,owner
+http://waisvm-rfp1.ecs.soton.ac.uk/users/1/loans/1,http://waisvm-rfp1.ecs.soton.ac.uk/books/1,2015-12-01,3,http://waisvm-rfp1.ecs.soton.ac.uk/fines/2,eh14g13
+</pre>
+                        <h4 class="heading code-font" id="loansnumhead">HEAD /users/1/loans/1</h4>
+                        <p class="small">Same as GET but returns only HTTP headers and no document body.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+                        <pre class="prettyprint language-html">
+Allow &rarr; GET, PATCH, DELETE, HEAD, OPTIONS
+Connection &rarr; Keep-Alive
+Content-Type &rarr; application/xml; charset=utf-8
+Date &rarr; Mon, 09 Nov 2015 16:56:25 GMT
+Keep-Alive &rarr; timeout=5, max=100
+Server &rarr; Apache/2.2.22 (Ubuntu)
+Vary &rarr; Accept
+X-Frame-Options &rarr; SAMEORIGIN
+</pre>
+                        <h4 class="heading code-font" id="loansnumdelete">DELETE /users/1/loans/1</h4>
+                        <p class="small">Deletes the loan located at /users/1/loans/1, so for user 1, if the user meets the required permissions i.e. if they are the owner of the loan/they created the loan.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 204 NO CONTENT</span> or if the correct authorization token id not given then returns<span class="code-font"> 403 FORBIDDEN</span> or if there is a fine on the loan then it cannot be deleted returns <span class="code-font"> 402 PAYMENT REQUIRED </span> and the user is redirected to the fine/&lt;fine-id&gt; page for the fine in order to pay the fine (using a DELETE request).</p>
+                        
+                        <h4 class="heading code-font"id="loansnumoptions">OPTIONS /users/1/loans/1</h4>
+                        <p class="small">Returns information about the formats which are rendered and parsed by the loans/&lt;loan-id&gt; page.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span></p>
+                        <pre class="prettyprint language-html">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+    &lt;name&gt;Loan Detail&lt;/name&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;renders&gt;
+        &lt;list-item&gt;application/xml&lt;/list-item&gt;
+        &lt;list-item&gt;application/json&lt;/list-item&gt;
+        &lt;list-item&gt;text/csv&lt;/list-item&gt;
+    &lt;/renders&gt;
+    &lt;parses&gt;
+        &lt;list-item&gt;application/xml&lt;/list-item&gt;
+        &lt;list-item&gt;application/json&lt;/list-item&gt;
+        &lt;list-item&gt;text/csv&lt;/list-item&gt;
+    &lt;/parses&gt;
+&lt;/root&gt;
+</pre>
+                        <h3 class="heading">Example Input (for modifying a resource)</h3>
+                        <h4 class="heading code-font" id="loansnumpatch">PATCH /users/1/loans/1</h4>
+                        <p class="small">The HTTP method PATCH can be used to update partial resources. For instance, when you only need to update one field of the resource.</p>
+                        <p class="small">HTTP Status Code:<span class="code-font"> 200 OK</span> or if the correct authorization token id not given then returns<span class="code-font"> 403 FORBIDDEN</span></p>
+                        <p class="small">PATCH /users/&lt;user-id&gt;/loans/&lt;loan-id&gt; can be used for either extending a loan.</p>
+                        <br/>
+                        <h5 class="subheading">Extending a Loan</h5>
+                        <p class="small">A user may extend a loan for 7 days, this is done by making a PATCH request to a particulat loan/book and updating the due date field by 7 more days and adding one to the times extended field which allows a user and the system to keep track of how many times a loan has been extended (this might be particularly useful if you wanted to enforce a limit on the number of times a loan can be extended although this is not a limit currently imposed).</p>
+                        <p class="small">If there is a fine on the loan then it cannot be extended and it returns <span class="code-font"> 402 PAYMENT REQUIRED </span> and the user is redirected to the fine/&lt;fine-id&gt; page for the fine in order to pay the fine (using a DELETE request).</p>
+                        <p class="small">Format: raw</p>
+                        <p class="heading small">Headers</p>
+                        <p class="heading small">Content-Type: application/xml;</p>
+<pre class="prettyprint language-html">
+&lt;root&gt;
+    &lt;due_date&gt;2015-12-08&lt;/due_date&gt;
+    &lt;times_extended&gt;4&lt;/times_extended&gt;
+&lt;/root&gt;
+</pre>
+                        <p class="heading small">Content-Type: application/json;</p>
+
+                        <pre class="prettyprint language-js">
+{
+    "due_date": 2015-12-08,
+    "times_extended": "4",
+}
+</pre>
+                        <p class="heading small">Content-Type: text/csv;</p>
+<pre class="prettyprint language-html">
+due_date,times_extended
+2015-12-08,4
+</pre>
+                        
+                    </div>
+                </section>
+                
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 text-left text-center-mobile">
+                            <p class="copyright small muted">Copyright &copy; 2015 Bukku Template - All rights reserved!</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.onepagenav.js"></script>
+        <script src="js/core.js"></script>
+        <script src="js/tooltip.js"></script>
+        <script src="js/jquery.form-validator.js"></script>
+        <script src="js/preloader.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

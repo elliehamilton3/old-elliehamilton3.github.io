@@ -1,0 +1,260 @@
+
+body{
+    margin:0px;
+    border:0px;
+}
+#background{
+    padding:0px;
+    padding-top: 70px;
+}
+#header{
+    width:1100px;
+    margin:auto;
+    height:400px;
+    padding-left:30px;
+    padding-right:30px;
+    background-color:black;
+    border: 3px;
+    border-color: white;
+    border-style: solid; 
+    
+}
+#logo {
+    position:relative;
+    top:70px;
+    
+}
+.jobsTable {
+    float:right;
+}
+.jobsTable table{
+    padding:5px;
+}
+.jobsContent {
+    margin:10px;
+    margin-top: 0px;
+    margin-right: 20px;
+
+}
+
+#topImage{
+    width:100%;
+    height:300px;
+    position:relative;
+    top:-200px;
+    
+
+}
+
+a img{
+  border: none;
+}
+
+#contrast{
+    float:left;
+    padding:2px;
+    margin:10px;
+}
+#cookiesWarning{
+    background:#2779aa;
+    width:100%;
+    color:white;
+    margin-top:0;
+    padding:5px;
+}
+#cookiesWarning a{
+    text-decoration:none;
+    color:#0000cd;
+}
+#cookiesWarning a:hover{
+    color:#00ff66;
+}
+#nav{
+    //background-color:black;
+    //float:right;
+    width:1050px;
+    //:center;
+    margin:auto;
+    position:relative;
+    top:-200px;
+}
+#nav ul{
+    list-style-type:none;
+}
+#nav li{
+    font-family: 'Henny Penny', cursive;
+    font-size:20px;
+    font-weight:bold;
+    display:inline;
+    padding:15px;
+}
+
+#nav a{
+    text-decoration:none;
+    color:white;
+}
+#nav a:hover{
+    color:#2779aa;
+}
+#SNlinks{
+    margin-top:5px;
+    padding-left: 20px;
+    float:left;
+}
+
+#sitemap li{
+    font-family: 'Rosario', sans-serif;
+    font-size:18px;
+    font-weight:bold;
+}
+
+#sitemap a{
+    text-decoration:none;
+    color:black;
+}
+#sitemap a:hover{
+    color:#2779aa;
+}
+#introText{
+    text-align: center;
+}
+#content p{
+    font-family: 'Rosario', sans-serif;
+    font-size:16px;
+}
+#content li{
+    font-family: 'Rosario', sans-serif;
+    font-size:16px;
+}
+#content h2{
+    font-family: 'Henny Penny', cursive;
+    font-size:18px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px dotted #c8cbc5;
+}
+
+#content h3{
+    font-family: 'Rosario', sans-serif;
+    font-size:18px;
+}
+#content h4{
+    font-family: 'Rosario', sans-serif;
+    font-size:16px;
+    font-weight:bold;
+
+}
+#content h1{
+    font-family: 'Henny Penny', cursive;
+    font-size:28px;
+}
+#content {
+
+    position:relative;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:20px;
+    top:100px;
+    width:1000px;
+    margin:auto;
+}
+tr#2row{
+    position:relative;
+    top:10px;
+}
+
+#bookshelf table{
+    background: url(images/shelves.jpg) repeat-y center center;
+    min-width: 971px;    
+    width:971px;
+    margin:auto;
+
+}
+#bookshelf img{
+    margin:auto;
+    padding-left:60px;
+    position:relative;
+    top:5px;
+
+}
+#bookshelf p{
+    padding-left:60px;
+}
+#bookshelf div{
+    margin:0px auto;
+}
+#booksTop {
+    position:relative;
+    top:5px;
+    right:46px;
+    padding:0; 
+}
+
+#calendar div{
+    width:320px;
+    float:left;
+}
+#events{
+    float:left;
+    width:500px;
+    margin-left:100px;
+}
+#signup{
+    clear:both;
+    width:500px;
+}
+.authorImage {
+    float:right;
+    margin:5px;
+    width:160px;
+    height:230px;
+    max-height:100%; 
+    max-width:100%;
+}
+.authorImageLeft {
+    float:left;
+    margin:5px;
+    width:160px;
+    height:230px;
+}
+#footer-bottom {
+    background-color:black;
+    position:relative;
+    width:100%;
+    height:80px;
+
+}
+#footer-bottom p{
+    text-align:right;
+    font-family: 'Rosario', sans-serif;
+    font-size:14px;
+    padding-top: 4px;
+    border-top: 1px dashed #c8cbc5;
+    color:white;
+}
+#footer-bottom li{
+    font-family: 'Rosario', sans-serif;
+    font-size:14px;
+}
+#footer-bottom ul{
+    list-style-type:none;
+    text-align:right;
+}
+#footer-bottom li{
+    display:inline;
+    padding:10px;
+}
+#footer-bottom a{
+    text-decoration:none;
+    color:white;
+}
+#footer-bottom a:hover{
+    color:#2779aa;
+}
+#map_canvas {
+    margin: 20px;
+    padding: 0;
+    height: 300px;
+    width: 500px;
+    float:left;
+}

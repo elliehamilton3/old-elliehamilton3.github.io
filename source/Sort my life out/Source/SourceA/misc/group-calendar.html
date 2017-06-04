@@ -1,0 +1,575 @@
+<html class="no-js" lang="">
+		<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+				<title>Sort My Life Out</title>
+				<meta name="description" content="">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+
+				<link rel="stylesheet" href="css/bootstrap.min.css">
+				<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+				<link rel="stylesheet" href="css/main.css">
+
+				<script src="libraries/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+				<script>window.jQuery || document.write('<script src="libraries/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+				<!-- Full Calendar imports -->
+				<link rel='stylesheet' href='libraries/fullcalendar/fullcalendar.css' />
+				<script src='libraries/moment.js'></script>
+				<script src='libraries/fullcalendar/fullcalendar.js'></script>
+				<script src='libraries/qtip/jquery.qtip.min.js'></script>
+				<link rel='stylesheet' href='libraries/qtip/jquery.qtip.min.css' />
+
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+				<meta name="google-signin-client_id" content="110052355668-ill69eihnsdnai3piq6445qvc0e19et6.apps.googleusercontent.com">
+				<script src="libraries/vendor/bootstrap.min.js"></script>
+
+				<!-- DatePicker -->
+				<link rel='stylesheet' href='libraries/datepicker/css/bootstrap-datepicker.css' />
+				<link rel='stylesheet' href='libraries/datepicker/css/bootstrap-datepicker.min.css' />
+				<script src='libraries/datepicker/js/bootstrap-datepicker.js'></script>
+				<script src='libraries/datepicker/js/bootstrap-datepicker.min.js'></script>
+				<script src='libraries/datepicker/locales/bootstrap-datepicker.uk.min.js'></script>
+
+				<!-- TimePicker -->
+				<script src='libraries/timepicker/js/bootstrap-timepicker.js'></script>
+				<link rel='stylesheet' href='libraries/timepicker/css/bootstrap-timepicker.min.css' />
+
+				<!--Colour picker-->
+				<script src='libraries/spectrum/spectrum.js'></script>
+				<link rel='stylesheet' href='libraries/spectrum/spectrum.css' />
+				<!-- Drop Down Picker -->
+				<script src='js/group-calendar.js'></script>
+
+				<style>
+					.bootstrap-timepicker-widget.dropdown-menu.open{
+						z-index: 1500;
+					}
+					body {
+						padding-top: 50px;
+						padding-bottom: 20px;
+					}
+					.form-horizontal .form-group {
+						margin-left:0;
+						margin-right: 0;
+					}
+					.form-group{
+						margin-bottom: 0;
+					}
+					.row{
+						padding-bottom: 15px;
+					}
+					.full-spectrum .sp-palette {
+						max-width: 200px;
+					}
+					.table-heading{
+						padding-top: 10px;
+						padding-bottom: 10px;
+						font-weight: bold;
+					}
+					.state-icon {
+					    left: -5px;
+					}
+					.list-group-item-primary {
+					    color: rgb(255, 255, 255);
+					    background-color: rgb(66, 139, 202);
+					}
+					.list-group-item-deleted {
+					      position: relative;
+						  display: block;
+						  padding: 10px 15px;
+						  margin-bottom: -1px;
+						  background-color: #fff;
+						  border: 1px solid #ddd;
+						  color: #777;
+						  cursor: default;
+						  background-color: #eee;
+					}
+				</style>
+
+		</head>
+
+
+		<body class="group-page">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Sort My Life Out</a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#events" data-toggle="tab">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>	Calendar
+						</a></li>
+						<li class=""><a href="#tasks" data-toggle="tab">
+							<span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>	Tasks
+						</a></li>
+						<li><a>
+							<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+							Group name: {{ group.name }}
+						</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class=""><a href="/calendar">
+							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>	Back to main site
+						</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+		</nav>
+
+
+		<div class="container main">
+				<div class="row">
+<!-- 						<div class="col-xs-12">
+							<h2>Group name: {{ group.name }}</h2>
+						</div> -->
+						<div class="col-xs-9">
+<!-- 						    <ul class="nav nav-pills nav-justified">
+						        <li class="nav active"><a href="#events" data-toggle="tab">Calendar</a></li>
+						        <li class="nav"><a href="#tasks" data-toggle="tab">Tasks</a></li>
+						        <li class="nav"><a href="#members" data-toggle="tab">Members</a></li>
+						    </ul> -->
+							
+							<br/>
+							<!-- Tab panes -->
+						    <div class="tab-content">
+						        <div class="tab-pane fade in active" id="events"><div id="calendar"></div></div>
+						        <div class="tab-pane fade" id="tasks"><div class="well" style="" id="excelDataTable"></div></div>
+						        <div class="tab-pane fade" id="members"><div class="well" id="memberlist"></div></div>
+						    </div>
+						</div>
+						<div class="col-xs-3">
+							<div class="panel panel-default">
+								<div class="panel-heading">Group Details</div>
+									<div class="panel-body">
+										<p><b>Description: </b>{{ group.description }}</p>
+										<a href="#" data-toggle="modal" data-target="#editGroupModal">Edit Group</a>
+										<!-- Modal -->
+										<div id="editGroupModal" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Edit Group</h4>
+														</div>
+														<div class="modal-body">
+															<!-- Form within Modal -->
+															<form name="editGroupForm" class="form-horizontal" role="form" onsubmit="return validateEditGroupInputs()" method="post" action="/editgroup">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="sel2">Group Name:</label>
+																		<input type="text" name="group_name" id="sel2" class="form-control" aria-label="" value="{{group.name}}"/>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="sel2">Description:</label>
+																		<input type="text" name="group_description" id="sel2" class="form-control" aria-label="" value="{{group.description}}"/>
+																	</div>
+																</div>
+																<div class="modal-footer">
+																	<input type='hidden' name="id" value="{{ group.key() }}" />
+																	<button type="submit" class="btn btn-default">Submit</button>
+																</div>
+															</form>
+														</div>
+													</div>
+													<!-- //Modal Content -->
+												</div>
+											</div>
+										<a href="#" data-toggle="modal" data-target="#confirm-leave">Leave Group</a>
+									</div>
+								</div>
+								
+								<div class="panel panel-default" id="panel-add">
+									<div class="panel-heading">Add New Items</div>
+									<div class="panel-body">
+										<ul class="add-items-list">
+											<li><a href="#" data-toggle="modal" data-target="#addModuleModal">Add Events</a></li>
+											<!-- Modal -->
+											<div id="addModuleModal" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Add Events</h4>
+														</div>
+														<div class="modal-body">	
+															<!-- Form within Modal -->
+															<form name="addEventForm" class="form-horizontal" role="form" method="post" action="/groupevent" onsubmit="return validateEventInputs(false)">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="eventname">Event Name:</label><br/>
+																		<input id="eventname" type="text" name="eventName" placeholder="Event Name" class="form-control" aria-label="">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<div class="form-group">
+																			<label for="eventtype">Assign User:</label><br/>
+																			<select id="eventtype" name="event_type" class="form-control">
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="row" class="input-group">
+																	<div class="col-xs-12">
+																		<label for="eventlocation">Event Location:</label><br/>
+																		<input name="eventLocation" id="eventlocation" type="text" placeholder="Location - Building/Room Number" class="form-control" aria-label="">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="input-group" style-width:"100%">
+																		<div class="col-xs-6">
+																			<label for="startdate">Start Date:</label><br/>
+																			<input id="startdate" name="start_date" type="text" class="datepicker form-control" aria-label="">
+
+																		</div>
+																		<div class="col-xs-6">
+																			<label for="timepicker6">Start Time:</label><br/>
+																			<input name="start_time" id="timepicker6" data-provide="timepicker" class="form-control" type="text" class="input-small" data-provide="timepicker" data-template="dropdown" data-minute-step="5" data-show-meridian="false">
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="input-group" style-width:"100%">
+																		<div class="col-xs-6">
+																			<label for="enddate">End Date:</label><br/>
+																			<input name="end_date" id="enddate" type="text" class="datepicker form-control" placeholder="" aria-label="...">
+																		</div>
+																		<div class="col-xs-6">
+																			<label for="timepicker8">End Time:</label><br/>
+																			<input name="end_time" id="timepicker8" class="form-control" type="text"  data-provide="timepicker" data-template="dropdown" data-minute-step="5" data-show-meridian="false" class="input-small">
+																			<i class="icon-time"></i>
+																		</div>	
+																	</div>
+																</div>
+																<br/>
+																<div class="modal-footer">
+																	<input type='hidden' name="id" value="{{ group.key() }}" />
+																	<button type="submit" class="btn btn-default">Submit</button>
+																</form>
+															</div>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+
+											<li><a href="#" data-toggle="modal" data-target="#addAssignmentModal">Add Task</a></li>
+											<!-- Modal -->
+											<div id="addAssignmentModal" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Add Task</h4>
+														</div>
+														<div class="modal-body">
+															<!-- Form within Modal -->
+															<form name="addTaskForm" class="form-horizontal" role="form" method="post" action="/grouptask" onsubmit="return validateTaskInputs()">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="sel2">Task Name:</label>
+																		<input type="text" name="taskName" id="sel2" class="form-control" aria-label=""/>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<div class="form-group">
+																		  	<label for="sel1">Assign User:</label>
+																		  	<select class="form-control" id="tasktype" name="task_type">
+																		  	</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-2">
+																		<label for="datepicker1">Date:</label>
+																	</div>
+																	<div class="col-xs-4">
+																		<input name="deadline_date" type="text" id="datepicker1" class="datepicker form-control" aria-label="">
+																	</div>
+																	<div class="col-xs-2">
+																		<label for="timepicker7">Time:</label>
+																	</div>
+																	<div class="col-xs-4">
+																		<input name="deadline_time" id="timepicker7" class="form-control" type="text"  data-provide="timepicker" data-template="dropdown" data-minute-step="5" data-show-meridian="false">
+																	</div>
+																	
+																</div><!-- /.row -->
+																<div class="modal-footer">
+																	<input type='hidden' name="id" value="{{ group.key() }}" />
+																	<button type="submit" class="btn btn-default">Submit</button>
+																</div>
+															</form>
+														</div>
+													</div>
+													<!-- //Modal Content -->
+												</div>
+											</div>
+											<!-- //Modal -->
+											<li class="no-border"><a href="#" data-toggle="modal" data-target="#inviteUsers">Invite Users</a></li>
+											<!-- Modal -->
+											<div id="inviteUsers" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Invite Users</h4>
+														</div>
+														<div class="modal-body">
+															<!-- Form within Modal -->
+															<form name ="addGroupForm" class="form-horizontal" role="form" method="post" action="/invite">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="sel2">Member Email:</label>
+																		<div class="row" style="">
+																			<div class="col-xs-12">
+																				<div class="input-group">
+																					<input type="text" name="member_email" id="emailBox" value="" class="form-control" placeholder="example@email.com">
+																					<span class="input-group-btn">
+																						<button class="btn btn-default" type="button" onclick="addInput()">Add</button>
+																					</span>
+																				</div>
+																			</div>
+																			
+																			<div class="col-xs-12" id="addedEmails"></div>
+																		</div>
+																		<script>																			
+																			var countBox = 1;															
+																			var textbox = document.getElementById("emailBox");
+																			var emails = new Array();
+																			function addInput()
+																			{
+																				var addGroupMemberEmail = document.forms["addGroupForm"]["member_email"].value;
+																				if( addGroupMemberEmail != null && addGroupMemberEmail != '' ) {
+																					var filter = /^(([a-zA-Z0-9_.-])+@(gmail\.com|googlemail\.com))?$/
+																					if (filter.test(addGroupMemberEmail)){ 
+																						// Check if they've already input that user
+																						if( $.inArray(addGroupMemberEmail, emails) > -1 ) {
+																							alert("You've already added that user!");
+																							return false;
+																						} else {
+																							// Check the user has an account, and if they're already in the group
+																							var xhr = new XMLHttpRequest();
+																							xhr.open('POST', '/checkuser');
+																							xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+																							xhr.onload = function() {
+																								console.log(xhr.responseText);
+																								if( xhr.responseText === "True" ) {
+																									document.getElementById('addedEmails').innerHTML+='<input type="text" name="email' + countBox + '" value="' + textbox.value + '" class="form-control" readonly>';
+																									emails.push(textbox.value);
+																									textbox.value = '';
+																									countBox++;
+																								} else {
+																									alert(xhr.responseText);
+																									return false;
+																								} 
+																							};
+																							xhr.send('email=' + addGroupMemberEmail + '&group={{ group.key() }}');
+																						}
+																					}else{
+																						alert("Email must be a gmail or googlemail email address"); 
+																						return false; 													
+																					}																			
+																				} else {
+																					alert("You didn't enter a value!");
+																					return false;
+																				}
+																			}
+																		</script>
+																	</div>
+																</div>
+																<div class="modal-footer">
+																	<input type='hidden' name="id" value="{{ group.key() }}" />
+																	<button type="submit" class="btn btn-default">Submit</button>
+																</div>
+															</form>
+														</div>
+													</div>
+													<!-- //Modal Content -->
+												</div>
+											</div>
+										</ul>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">Tasks</div>
+									<div class="panel-body">
+										<div id="deadlinesbox">
+										</div>
+									</div>
+								</div>
+								
+								<div class="panel panel-default">
+									<div class="panel-heading">Members</div>
+									<div class="panel-body">
+										<div id="keylist">
+										</div>
+											<!-- Modal -->
+											<div id="editKeyModal" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Edit Key</h4>
+														</div>
+														<div class="modal-body">
+															<!-- Form within Modal -->
+															<form class="form-horizontal" role="form" method="post" action="/editgroupkey">
+																<div class="row">
+																	<div class="col-xs-12">
+																		<input type="hidden" name="key_id" id="edit_key_id">
+																		<label for="sel2">Key Name:</label>
+																		<input type="text" name="name" id="edit_key_name" class="form-control" aria-label="" disabled/>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-12">
+																		<label for="color">Colour:</label><br/>
+																		<input type='text' class="colorpicker" id="edit_key_color" name="color" value="gray" class="form-control"/>
+																	</div>
+																</div>
+																<div class="modal-footer">
+																	<input type='hidden' name="id" value="{{ group.key() }}" />
+																	<button type="submit" class="btn btn-default">Submit</button>
+																</div>
+															</form>
+														</div>
+													</div>
+													<!-- //Modal Content -->
+												</div>
+											</div>
+									</div>
+								</div>
+
+						</div>
+				</div>
+		</div>
+		<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" id="confirm-delete2">
+				<div class="modal-content">
+				
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+					</div>
+				
+					<div class="modal-body">
+						<p>Do you want to delete this task?</p>
+					</div>
+					
+					<div class="modal-footer" id="modal-footer">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="editModuleModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Edit Event</h4>
+					</div>
+					<div class="modal-body">	
+						<!-- Form within Modal -->
+						<form class="form-horizontal" role="form" method="post" action="/editgroupevent" onsubmit="return validateEventInputs(true)">
+							<div class="row">
+								<div class="col-xs-12">
+									<label for="eventname">Event Name:</label><br/>
+									<input id="editeventname" type="text" name="eventName" placeholder="Event Name" class="form-control" aria-label="">
+								</div>
+							</div>
+							<input type="hidden" name="event_id" id="editevent_id">
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label for="eventtype">Assigned to:</label><br/>
+										<select id="editeventtype" name="event_type" class="form-control">
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row" class="input-group">
+								<div class="col-xs-12">
+									<label for="eventlocation">Event Location:</label><br/>
+									<input name="eventLocation" id="editeventlocation" type="text" placeholder="Location - Building/Room Number" class="form-control" aria-label="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-group" style='width:"100%"'>
+									<div class="col-xs-6">
+										<label for="startdate">Start Date:</label><br/>
+										<input id="startdate" name="start_date" type="text" placeholder="" class="form-control editstartdate" aria-label="">
+									</div>
+									<div class="col-xs-6">
+										<label for="timepicker6">Start Time:</label><br/>
+										<input name="start_time" id="timepicker6 editstarttime" class="form-control editstarttime" type="text">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-group" style='width:"100%"'>
+									<div class="col-xs-6">
+										<label for="enddate">End Date:</label><br/>
+										<input name="end_date" id="enddate editenddate" type="text" placeholder="" class="form-control editenddate" aria-label="">
+									</div>
+									<div class="col-xs-6">
+										<label for="timepicker8">End Time:</label><br/>
+										<input name="end_time" id="timepicker8 editendtime" class="form-control editendtime" type="text" >
+										<i class="icon-time"></i>
+									</div>	
+								</div>
+							</div>
+							<br/>
+							<div class="modal-footer">
+								<input type='hidden' name="group_id" value="{{ group.key() }}" />
+								<button type="submit" class="btn btn-default">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="confirm-leave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" id="confirm-leave2">
+				<div class="modal-content">
+            
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+					</div>
+            
+					<div class="modal-body">
+						<p>By leaving, you will no longer be able to access this group. Also, all your assigned tasks and events will be deleted.</p>
+					</div>
+                
+					<div class="modal-footer" id="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<a class="btn btn-danger btn-ok" id="leavegroup" onclick="leaveGroup()">Leave</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

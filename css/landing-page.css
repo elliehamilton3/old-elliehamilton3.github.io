@@ -99,6 +99,10 @@ h6 {
     border-bottom: 1px solid #e7e7e7;
 }
 
+#projects img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .section-heading {
     margin-bottom: 30px;
 }
@@ -126,16 +130,8 @@ h6 {
     margin-bottom: 0;
 }
 
-.banner-social-buttons {
-    float: right;
-    margin-top: 0;
-}
-
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
+ul.banner-social-buttons {
+    margin-top: 15px;
 }
 
 @media(max-width:767px) {

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Cookies</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#ACDDEB;
+            }
+            #content{
+                top:-30px;
+            }
+ 
+        </style>
+        <script>
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";
+                document.getElementsByTagName("body")[0].style.color = "yellow";
+            }
+            function toggleContrast() {
+                if (!on) {
+                    on = true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else {
+                    on = false;
+                    document.getElementsByTagName("body")[0].style.background = "#ACDDEB";
+                    document.getElementsByTagName("body")[0].style.color = "black";
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+
+
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/cry-wolf.png" alt="" width="1100" />
+                </div>
+
+            </div>
+            <div id="content">
+                <h1>Cookies</h1>
+                <p>Our website uses cookies.  By using our website and agreeing to this policy, you consent to our use of cookies in accordance with the terms of this policy.</p>
+
+                <h4>About cookies</h4>
+
+                <p>Cookies are files, often including unique identifiers, that are sent by web servers to web browsers, and which may then be sent back to the server each time the browser requests a page from the server.</p>
+
+                <p>Cookies can be used by web servers to identity and track users as they navigate different pages on a website, and to identify users returning to a website.</p>
+
+                <p>Cookies may be either "persistent" cookies or "session" cookies.  A persistent cookie consists of a text file sent by a web server to a web browser, which will be stored by the browser and will remain valid until its set expiry date (unless deleted by the user before the expiry date). A session cookie, on the other hand, will expire at the end of the user session, when the web browser is closed.</p>
+
+                <h4>How we use cookies</h4>
+                <p>Cookies do not contain any information that personally identifies you, but personal information that we store about you may be linked, by us, to the information stored in and obtained from cookies. The cookies used on this website include those which are strictly necessary cookies for access and navigation, cookies that track usage (performance cookies), remember your choices (functionality cookies), and cookies that provide you with targeted content or advertising. </p>
+
+                <p>We may use the information we obtain from your use of our cookies for the following purposes:</p>
+                    <ol>
+                        <li>to recognise your computer when you visit our website</li>
+                        <li>to track you as you navigate our website, and to enable the use of any e-commerce facilities</li>
+                        <li>to improve the website's usability</li>
+                        <li>to analyse the use of our website</li>
+                        <li>in the administration of this website</li>
+                        <li>to personalise our website for you, including targeting advertisements which may be of particular interest to you.</li>
+                    </ol>
+                <h4>Third party cookies</h4>
+
+                <p>When you use our website, you may also be sent third party cookies.</p>
+
+                <p>Our advertisers and service providers may send you cookies.  They may use the information they obtain from your use of their cookies:</p>
+                    <ol>
+                        <li>to track your browser across multiple websites</li>
+                        <li>to build a profile of your web surfing</li>
+                        <li>to target advertisements which may be of particular interest to you.</li>
+                    </ol>
+                <p>In addition, we use Google Analytics and Webtrends to analyse the use of this website.  Google Analytics and Webtrends generate statistical and other information about website use by means of cookies, which are stored on users' computers.  The information generated relating to our website is used to create reports about the use of the website.  Google will store this information.  Google's privacy policy is available at: http://www.google.com/privacypolicy.html</p>
+
+                <p>In addition to the information we provide in this Cookie Policy, you can find out more information about your online choices at http://www.youronlinechoices.co.uk</p>
+
+                <h4>Blocking and Deleting Cookies</h4>
+                <p>You can block and delete cookies but doing this may have a negative impact on the usability of many websites.
+
+                <h4>When was this page last updated?</h4>
+
+                <p>[30 April 2014]</p>
+
+
+            </div>
+
+            <div id="footer-bottom">
+                 <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                 <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

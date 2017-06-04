@@ -1,0 +1,9 @@
+---
+layout: default
+img: sortmylifeout.png
+source: http://sort-my-life-out.appspot.com/
+category: Services
+title: Python Project:<br>Sort My Life Out
+description: |
+---
+We created an application that allowed users to manage a variety of aspects involved in student life. We implemented a calendar which students could use to add events including modules (lecture/seminars), shifts for a job, society events, one-off events etc. In addition to this, we included the functionality to manage tasks and deadlines (tasks with a date/time). Furthermore, students can join groups to work on projects etc.

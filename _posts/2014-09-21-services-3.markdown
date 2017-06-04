@@ -1,0 +1,9 @@
+---
+layout: default
+img: libraryapi.png
+source: source/REST-API-Documentation/Part-1/index.html
+category: Services
+title: Rest API Documentation:<br>Library System
+description: |
+---
+Starting from a single URL I was required to [explore and document](source/REST-API-Documentation/Part-1/index.html) an entire REST API representing a library system. Following this, I was then given the job of [extending the documentation](source/REST-API-Documentation/Part-2/books.html) to include a number of other elements, within certain restrictions and requirements, which would be useful to have in the API.

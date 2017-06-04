@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Home</title>
+
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background-color:#A3421E;
+            }
+            #content {	
+                top:175px;   
+            }
+            #footer-bottom{
+                top:170px;   
+            }
+            #homelinks img{
+                padding-top:26px;
+                padding-bottom:41px;
+            }
+            #homelinks img:hover{
+                width:370px;
+                height:352px;
+                padding-top:0px;
+                padding-bottom:15px;
+            }
+        </style>
+        <script>
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";
+                document.getElementsByTagName("body")[0].style.color = "yellow";
+                document.getElementById("contactInfo").style.color = "black";
+            }
+            function toggleContrast() {
+                if (!on) {
+                    on = true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else {
+                    on = false;
+                    document.getElementsByTagName("body")[0].style.background = "#A3421E";
+                    document.getElementsByTagName("body")[0].style.color = "black";
+                    document.getElementById("contactInfo").style.color = "white";
+                    contrastCookie(on);
+                }
+            }
+            setTimeout("loop()", 3200);
+            var count = 0;
+            var images= ["images/red.png", "images/loop2.png", "images/loop3.png", "images/loop4.png", "images/loop5.png"];
+            function loop(){
+                if(count===0){
+                    $("#loop").attr("src", images[count]);
+                }
+                else if(count===1){
+                    $("#loop").attr("src",images[count]);
+                }
+                else if(count ===2){
+                    $("#loop").attr("src", images[count]);
+                }
+                else if(count ===3){
+                    $("#loop").attr("src", images[count]);
+                }
+                else{
+                    $("#loop").attr("src",  images[count]);
+                }
+                if(count >= images.length){
+                    count = 0;
+                } 
+                else{
+                    count++;
+                }
+                setTimeout("loop()", 3200);     
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+
+        <div id="background">
+
+            <div id="header">
+
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html" style="color:#F18020">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img id="loop" src="images/red.png" width="1100" alt=""/>
+                </div>
+            </div>
+
+            <div id="content">
+                <h1 id="introText">Big Wolf Books is a Bath-based children's book publisher. We have a fantastic team of authors and illustrators and run a whole range of events for adults and children. </h1>
+
+                <table id="homelinks">
+                    <tr>
+                        <td><a href="Events.html"><img src="images/homeEvents.png" width="320" height="300" alt="Find out more about our school sessions"/></a></td>
+                        <td><a href="Jobs.html"><img src="images/homeJobs.png" width="320" height="300" alt="Interested in working with us"/></a></td>
+                        <td><a href="Bookshelf.html"><img src="images/homeBookshelf.png" width="320" height="300" alt="View our published collection"/></a></td>
+                    </tr>
+                </table>
+               
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>               
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

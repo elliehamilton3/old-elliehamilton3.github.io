@@ -1,0 +1,51 @@
+application: sort-my-life-out
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: img/favicon.ico
+  upload: favicon\.ico
+  secure: optional
+
+- url: /img
+  static_dir: img
+  secure: optional
+
+- url: /font-awesome
+  static_dir: font-awesome
+  secure: optional
+
+- url: /css
+  static_dir: css
+  secure: optional
+
+- url: /js
+  static_dir: js
+  secure: optional
+
+- url: /php
+  static_dir: php
+  secure: optional
+
+- url: /fonts
+  static_dir: fonts
+  secure: optional
+
+- url: /libraries
+  static_dir: libraries
+  secure: optional
+
+- url: .*
+  script: index.app
+  secure: optional
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: pycrypto
+  version: "2.6"
+- name: jinja2                                                                  
+  version: latest

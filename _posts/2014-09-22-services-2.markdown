@@ -1,9 +1,0 @@
----
-layout: default
-img: bigwolfbooks.png
-source: source/bigwolfplan.pdf
-category: Services
-title: Front-end Project:<br>Big Wolf Books
-description: |
----
-  This project required the full design of the website css and features and involved a [detailed plan](source/bigwolfplan.pdf). The result is a website for a children's book publishing company which has a number of interactive javascript features.

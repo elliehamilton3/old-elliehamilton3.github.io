@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Contact Us</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#ACDDEB;
+            }
+            #content{
+                top:-30px;
+            }
+            #twittFeed{
+                float:right;
+                margin: 20px;
+                padding: 0;
+                width:420px;
+                height:300px;
+                overflow:hidden;
+            }
+
+            #signup{
+                border-style:solid;
+                border-width:4px;
+                border-color: black;
+                padding:10px;
+                width:472px;
+                position:relative;
+                left:20px;
+                padding-top:0;
+                background-color:#2779aa;
+            }
+            #formMessage{
+                resize: none
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript">
+            var map;
+            function initialize() {
+                var myOptions = {
+                    zoom: 18,
+                    center: new google.maps.LatLng(51.38062302676362, -2.3574841022494),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById('map_canvas'),
+                        myOptions);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";
+                document.getElementsByTagName("body")[0].style.color = "yellow";
+            }
+            function toggleContrast() {
+                if (!on) {
+                    on = true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else {
+                    on = false;
+                    document.getElementsByTagName("body")[0].style.background = "#ACDDEB";
+                    document.getElementsByTagName("body")[0].style.color = "black";
+                    contrastCookie(on);
+                }
+            }
+            function validateForm(form) {
+                var success = true;
+                $(form.email.parentNode).css("color", "black");
+                $(form.name.parentNode).css("color", "black");
+                $(form.message.parentNode).css("color", "black");
+                $(form.phone.parentNode).css("color", "black");
+                if (form.name.value.trim().length === 0) {
+                    $(form.name.parentNode).css({'color': 'red', 'font-weight': 'bold'});
+                    success = false;
+                }
+                if (form.email.value.indexOf("@") === -1 || form.email.value.trim().length === 0) {
+                    $(form.email.parentNode).css({'color': 'red', 'font-weight': 'bold'});
+                    success = false;
+                }
+                if (form.message.value.trim().length === 0) {
+                    $(form.name.parentNode).css({'color': 'red', 'font-weight': 'bold'});
+                    success = false;
+                }
+                if (form.phone.value.trim().length === 0) {
+                    $(form.name.parentNode).css({'color': 'red', 'font-weight': 'bold'});
+                    success = false;
+                }
+                if (!success) {
+                    return false;
+                }
+                else {
+                    var expiresDate = new Date();
+                    expiresDate.setFullYear(expiresDate.getFullYear() + 1); //add 1 to year
+                    document.cookie = "name="+encodeURIComponent(form.name.value.trim())+";  expires=expiresDate.toUTCString()";
+                    document.cookie = "email="+encodeURIComponent(form.email.value.trim())+"; expires=expiresDate.toUTCString()";
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html" style="color:#ACDDEB">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/cry-wolf.png" alt="" width="1100" />
+                </div>
+            </div>
+
+            <div id="content">
+                <h1>Contact Us</h1>
+                <h3>You can get in contact with us by emailing Ellie Hamilton at <i>eh14g13@soton.ac.uk</i> or by calling <i>01225 300 300</i></h3>
+                <div id="map_canvas"></div>
+                <div id="twittFeed">
+                    <a class="twitter-timeline" href="https://twitter.com/search?q=%23books" data-widget-id="459600618206666752">Tweets about "#books"</a>
+                    <script>!function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + "://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");</script>
+                </div>
+                <p>4 North Parade, Bath, Somerset BA1 1LF</p>
+                <div id="signup">
+                    <h3>Fill in Contact Form</h3>
+                    <p>You can email us at <b>eh14g13@soton.ac.uk</b>, alternatively you can fill in this form and well get back to you.</p>
+                    <form id="contactquick" method="post" action="mailto:eh14g13@soton.ac.uk" onsubmit="return validateForm(this)">
+                        <p>Name: <input id="formName" type="text" name="name" /> </p>
+                        <p>Email: <input id="formEmail" type="text" name="email" /> </p>
+                        <p>Phone Number: <input id="formPhone" type="text" name="phone" /> </p>
+                        <p>Topic: <input id="formTopic" type="text" name="topic" /> </p>
+                        <p>Message: </p><textarea id ="formMessage" form="contactquick" name="message" cols="40" rows="10"></textarea>
+                        <input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" type="submit" value="Send"/>
+                    </form>
+                </div>
+            </div>
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

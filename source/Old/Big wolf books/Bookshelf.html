@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Bookshelf</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link type="text/css" href="dialog/css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="dialog/js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#FAE480;
+            }    
+            #content{                
+                top:-45px;
+            }
+            #content h1{
+                position:relative;
+                top:20px;
+            }
+            .oddrow{
+                position:relative;
+                top:10px;                
+            }
+            p{
+                font-family: 'Rosario', sans-serif;
+                font-size:16px;
+            }
+            #bookshelf p{
+                text-decoration:underline;
+                color:#ffcc00;
+            }
+            #bookshelf p:hover{
+                color:#2779aa;
+            }
+
+
+        </style>
+        <script>
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";
+                document.getElementsByTagName("body")[0].style.color = "yellow";
+                document.getElementById("booksTop").src = "";
+                $("table").css("background", "black");
+            }
+            function toggleContrast() {
+                if (!on) {
+                    on = true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else {
+                    on = false;
+                    document.getElementsByTagName("body")[0].style.background = "#FAE480";
+                    document.getElementsByTagName("body")[0].style.color = "black";
+                    document.getElementById("booksTop").src = "images/bookshelf_top.jpg";
+                    $("table").css("background", "url(images/shelves.jpg)");
+                    contrastCookie(on);
+                }
+            }
+            $(function() {
+                $(".blurbs").dialog({
+                    autoOpen: false,
+                    show: {
+                        effect: "fade", duration: 1000},
+                    hide: {
+                        effect: "fade", duration: 1000}
+                });
+                $(".twits").click(function() {
+                    $("#twitsblurb").dialog("open");
+                });
+                $(".matilda").click(function() {
+                    $("#matildablurb").dialog("open");
+                });
+                $(".witches").click(function() {
+                    $("#witchesblurb").dialog("open");
+                });
+            });
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html" style="color:#FAE480">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/pigs.png" alt="" width="1100" />
+                </div>
+            </div>
+
+            <div id="content">
+
+                <h1>Bookshelf</h1>
+
+                <div id="bookshelf">                    
+                    <img id="booksTop" src="images/bookshelf_top.jpg" alt="" width="971"/>
+
+                    <table >
+
+                        <tr>
+                            <td><img class="twits" src="images/rd1.jpg" width="120" height="180" alt="The Twits" /></td>
+                            <td><img class="matilda" src="images/rd2.jpg" width="120" height="180" alt="Matilda" /></td>
+                            <td><img class="witches" src="images/rd3.jpg" width="120" height="180" alt="The Witches" /></td>
+                            <td><img src="images/rd4.jpg" width="120" height="180" alt="Fantastic Mr Fox" /></td>
+
+                        </tr>
+                        <tr>
+                            <td><p class="twits"><br/>The Twits<br/>Roald Dahl<br/>&#163;6.99<br/><br/></p></td>
+                            <td><p class="matilda"><br/>Matilda<br/>Roald Dahl<br/>&#163;6.99<br/><br/></p></td>
+                            <td><p class="witches">The Witches<br/>Roald Dahl<br/>&#163;6.99<br/></p></td>
+                            <td><p>Fantastic Mr Fox<br/>Roald Dahl<br/>&#163;6.99<br/></p></td>
+                        </tr>  
+
+                        <tr>
+                            <td class="oddrow"><img src="images/rd6.jpg" width="120" height="180" alt="Charlie and the Chcolate Factory" /></td>
+                            <td class="oddrow"><img src="images/rd7.jpg" width="120" height="180" alt="Esio Trot" /></td>
+                            <td class="oddrow"><img src="images/rd8.jpg" width="120" height="180" alt="James and the Giant Peach" /></td>
+                            <td class="oddrow"><img src="images/rd9.jpg" width="120" height="180" alt="George's Marvellous Medicine" /></td>
+                        </tr>
+
+                        <tr>                    
+                            <td><p><br/>Charlie and the <br/>Chocolate Factory<br/>Roald Dahl<br/>&#163;5.99<br/><br/></p></td>
+                            <td><p><br/>Esio Trot<br/>Roald Dahl<br/>&#163;5.99<br/><br/></p></td>
+                            <td><p>James and Giant Peach<br/>Roald Dahl<br/>&#163;5.99<br/></p></td>
+                            <td><p>George's Marvellous <br/> Medicine<br/>Roald Dahl<br/>&#163;5.99<br/></p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/rd5.jpg" width="120" height="180" alt="The BFG" /></td>
+                            <td><img src="images/gruffalo.jpg" height="180" alt="The Gruffalo" /></td>
+                            <td><img src="images/potter1.jpg" height="180" alt="Harry Potter and the Philosophers Stone" /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><p><br/>The BFG<br/>Roald Dahl<br/>&#163;6.99<br/><br/></p></td>
+                            <td><p><br/>The Gruffalo<br/>Julia Donaldson<br/>&#163;4.99<br/><br/></p></td>
+                            <td><p><br/>The Philosopher's <br/>Stone<br/>J.K.Rowling<br/>&#163;7.99<br/></p></td>
+                            <td></td>
+                        </tr>
+
+
+                    </table>
+                </div>    
+            </div>
+            <div class="blurbs" id="twitsblurb" title="The Twits">
+                <p>How do you outwit a Twit? Mr. and Mrs. Twit are the smelliest, ugliest people in the world. They hate everything -- except playing mean jokes on each other, catching innocent birds to put in their Bird Pies, and making their caged monkeys, the Muggle-Wumps, stand on their heads all day. But the Muggle-Wumps have had enough. They don't just want out, they want revenge.</p>
+            </div>
+            <div class="blurbs" id="matildablurb" title="Matilda">
+                <p>Matilda's life is certainly a unique one. With parents who care very little about her, let alone allow themselves to notice her, she has learned to take care of herself at a very early age. Left all alone, Matilda teaches herself to read and acquires a vast knowledge of great literature by the age of four. When Matilda is sent to school, she is surrounded by children her own age and even has a loving teacher. For the first time, Matilda is actually cared for by an adult and she quickly grows to love her teacher, Miss Honey. But there is darkness at her school in the form of the headmistress: Miss Trunchbull is known for her erratic behaviour towards the students.</p>
+            </div>
+            <div class="blurbs" id="witchesblurb" title="The Witches">
+                <p>This is not a fairy-tale. This is about REAL WITCHES. Real witches don't ride around on broomsticks. They don't even wear black cloaks and hats. They are vile, cunning, detestable creatures who disguise themselves as nice, ordinary ladies. So how can you tell when you're face to face with one? Well, if you don't know yet you'd better find out quickly-because there's nothing a witch loathes quite as much as children and she'll wield all kinds of terrifying powers to get rid of them.</p>
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

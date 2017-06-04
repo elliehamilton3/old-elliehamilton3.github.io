@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Jobs</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <style>
+            body{
+                background:#00712B;
+            }
+            #content{
+                color:white;
+                top:-30px;
+            }
+            h1{
+                font-size: large;
+            }
+
+        </style>
+        <script>
+
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";    
+                document.getElementById("content").style.color = "yellow";  
+            }
+            function toggleContrast(){
+                
+                if(!on){
+                    on=true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else{
+                    on=false;
+                    document.getElementsByTagName("body")[0].style.background = "#00712B";  
+                    document.getElementById("content").style.color = "white";  
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+                
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" style="color:#00712B">Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/race.png" alt="" width="1100" />
+                </div>
+            </div>
+
+            <div id="content">
+                <h1>Jobs</h1>
+                <p>Big Wolf Books is a thriving company with teams working on a variety of creative projects. We are always looking for great freelancers and are usually seeking terrific people for full-time roles.</p>
+                <p>If you like the idea of joining our team then please give us a ring on 01225 300 300 or send an email to eh14g13@soton.ac.uk with an outline of your experience and why you’d like join the team.</p>
+                <h3>Sign up for job opportunity emails</h3>
+                <form method="get" action="Jobs.html" onsubmit="return validateForm(this)">
+                    <p>Name: <input id="formName" type="text" name="name" /> </p>
+                    <p>Email: <input id="formEmail" type="text" name="email" /> </p>
+                    <input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" type="submit" value="Sign up"/>
+
+                </form>
+                <h2>Current Vacancies</h2>
+                <div id="job-1">
+                    <h3>Senior Sales Manager</h3>
+                    <table class="jobsTable" border="1">
+                        <tr><td><p>Posted: </p></td>
+                            <td><p>15 April 2014 </p></td>
+                        </tr>
+                        <tr> <td><p>Contact: </p></td>
+                            <td><p>Eleanor Hamilton </p></td>
+                        </tr>
+                        <tr><td><p>Location: </p></td>
+                            <td><p>Our Bath Office </p></td>
+                        </tr>
+                        <tr><td><p>Function: </p></td>
+                            <td><p>Sales </p></td>
+                        </tr>
+                        <tr><td><p>Level: </p></td>
+                            <td><p>Management </p></td>
+                        </tr>
+                        <tr><td><p>Contract: </p></td>
+                            <td><p>Permanent </p></td>
+                        </tr>
+                        <tr><td><p>Hours: </p></td>
+                            <td><p>Full Time </p></td>
+                        </tr>
+                        <tr><td><p>Salary: </p></td>
+                            <td><p>£40000 - £60000 per annum + Commission </p></td>
+                        </tr>
+
+                    </table>
+                    <div class="jobsContent">
+                        <h4> The Role: </h4>
+                        <p>We are looking for someone who relishes a fast paced, high growth environment. They are also firm believers in trusting their employees to do what is necessary without micro management, so the ability to work autonomously is essential. As is a firm grasp of the UK digital ecosystem and established media agency contacts.</p> 
+
+                        <h4>Key responsibilities: </h4>
+                        <ul>
+                            <li>Full sales cycle - introduction pitches, organising meetings, creation of presentations, meetings, closing business, campaign management, repeat business </li>
+                            <li>Identification of new clients and new business opportunities </li>
+                            <li>Management of agency patch - account executive to trading director </li>
+                            <li>Client entertainment </li>
+                            <li>20 to 30 meetings a month</li>
+                            <li>Growth of revenue </li>
+                            <li>Growth of agency patch </li>
+                            <li>Management of an intern/exec </li>
+                        </ul>
+
+
+                        <h4> Key skills/experience: </h4>
+                        <ul>
+                            <li>Strong digital sales experience </li>
+                            <li>Ad network, RTB, or publisher direct background </li>
+                            <li>Strong presentation skills (comfortable presenting to 1 or 20 people) </li>
+                            <li>Competent in PowerPoint and Excel </li>
+                            <li>Excellent media agency contacts at multiple levels </li>
+                        </ul>
+                        <p>If you are interested apply now. Or drop us an email eh14g13@soton.ac.uk</p> 
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | About Us</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script> 
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <style>
+            body{
+                background:#5BAF61;
+            }            
+            #content p, #content h1, #content h2{
+                color:white;
+            }
+
+            #tabs-1, #tabs-2, #tabs-3{
+                border: 1px solid black;
+                background: #357030;
+            }
+            #tabs a {
+                font-family: 'Henny Penny', cursive;
+            }
+            .ui-widget-header {
+                border: 0px solid ;
+                background:#81BF96;
+                background-color:transparent;
+            }
+            .ui-widget-content {
+                border: 0px solid ;
+                background: #5BAF61;
+                background-color:transparent;
+            }
+            #tabs-2, #tabs-3{
+                overflow:hidden; 
+            }
+            #content{
+                position:relative;
+                top:-84px;
+            }
+            #content h1{
+                position:relative;
+                top:27px;
+            }
+            
+        </style>
+        <script>
+            $(function() {
+                $("#tabs").tabs();
+            });
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";     
+                document.getElementById("tabs-1").style.background="black";
+                document.getElementById("tabs-2").style.background="black";
+                document.getElementById("tabs-3").style.background="black";
+                $("p").css("color","yellow");
+                $("h1").css("color","yellow");
+                $("h2").css("color","yellow");
+                $("#copy").css("color","white");
+            }
+            function toggleContrast(){
+                if(!on){
+                    on=true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else{
+                    on=false;
+                    document.getElementsByTagName("body")[0].style.background = "#5BAF61";
+                    document.getElementById("tabs-1").style.background="#357030";
+                    document.getElementById("tabs-2").style.background="#357030";
+                    document.getElementById("tabs-3").style.background="#357030";
+                    $("p").css("color","white");
+                    $("h1").css("color","white");
+                    $("h2").css("color","white");
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+                
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" style="color:#81BF96">About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/piedpiper.png" width="1100" alt="" />
+                </div>
+            </div>
+            <div id="content">
+                <h1>About Us</h1>
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">About Us</a></li>
+                        <li><a href="#tabs-2">Our Authors</a></li>
+                        <li><a href="#tabs-3">Our Illustrators</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        <p>Big Wolf Books is respected worldwide for its tradition of publishing innovative, entertaining and award-winning books that excite and capture the imagination of young readers. We are recognised for nurturing new talent as well as boasting a highly regarded list of established best-selling authors. </p>
+                        <p>Based in Bath, the publishers aim to help develop children’s skills and abilities as part of the exciting process of growing up.</p>
+                        <p>The creative team is built up around authors, illustrators and editors that are full of enthusiasm! </p>
+                        
+                        <h2>My Website Design and Implementation</h2>
+                        <p>For my site I have used JQuery and JQuery UI. One of the parts of the JQuery library that I used was .css(). This method is very useful allowing me to dynamically change any of the CSS values. Although I also used document.getElementsByTagName("body")[0] to change properties of the body tag such as the background. The widgets that I used from the JQuery UI library are the date picker, buttons and tabs. I used the buttons all over my site such as with the forms submit button because it is more interesting than the default and then it matched the rest of the widgets.  I used the date picker widget as an event calendar, I added it to an empty div so that it appeared permanently. I had an array of events and looped through this so that if there was an event on that day it changed colour and when it was clicked on it displays details about the event the date, time, title and a more detailed description. I used some code I found here (http://stackoverflow.com/questions/5578259/jquery-ui-datepicker-how-to-add-clickable-events-on-particular-dates) but changed bits and added times and detailed information, how and where the events printed to on the page also if a day is clicked on with no events that clears the text. So I modified the code I used to help me quite a lot. I used the tabs widget on the about page, there is a tab that gives generic information about the company and this information about my work. The next tab had information and images about some of the authors publishing about the company, the tab after this is the same but with information about the illustrators. I also used the JQuery UI dialog widget, which I had not in my original plan, so that when books are clicked on the bookshelf a dialog box appears with a summary of the book. I showed this with the first three books on my bookshelf.</p>
+                        <p>I used mostly id’s in my site because I used them only once. The layout of my pages was made out of a few key id’s: header, nav, content, footer-bottom. I then used these id’s to set various different properties including background, padding and also combined these id’s with tags such as p to set the font and size of the paragraphs in the id. I used the cookiesWarning id in document.getElementById('cookiesWarning') to get the div containing the cookie banner so that it could then be removed this was done once the ‘Got it’ button was clicked. This removeMe() function also created a cookie so that this message didn’t keep reappearing.</p>
+                        <p>I kept most of the website features the same as I planned. I did, however, add a few features I used the JQuery UI buttons and dialog which I had not planned. On the ‘Contact Us’ page I added a Twitter widget for which I used the official Twitter widget creator, I added it because I thought that it would improve the website and add an extra form of interaction to the site.</p>
+                        <p>I chose to keep the design of my site simple as I had planned because I think that it is appropriate for the audience. My plan for the website was that it would be colourful and fun and I think that I have kept to this. Although the pages had different main images and different coloured backgrounds the style of the drawing was the same, it kept to the fairytale theme and the font and everything else about the pages was consistent.</p>
+                        <p>I changed a few things about the site from my plan but none of them were especially significant, I changed the nav bar so that when the links were clicked on they changed to the colour of the background rather than have a shape appear over the top because thought that the shape would have been inconsistent with the style of the site. On the home page I have a scrolling photo banner which tells the story of the creation of the company, telling people what it is the site does. I used 3 circle images with text in that were links to the bookshelf, events and jobs pages when these are hovered over the grow in size.</p>
+                        <p>I had very little problem with any of the accessibility features that I said I would include apart from the contrast ratio. For this I added a button to the footer which allows the user to toggle the contrast ratio on/off and I used cookies so that this is persistent. I designed the website so that the text can resize easily. I used alt tags everywhere and headings throughout the site. I also used cookies for my forms and to warn the user with a banner that the site uses cookies, this warning would then only appear until it was accepted.</p>
+                        <p>My page layout and background changed quite a bit from my plan, I decided that instead of having the main image at the bottom I would have it at the top just under the logo and nav bar and then this would overlap with the black box containing the nav and logo to layer the page and make it look more connected. Also the logo is in the middle of the nav bar instead of at the left.</p>
+                        <p>The content of my pages stayed pretty much as planned apart from I added some more information to the jobs page about a current vacancy and a contact form on the contact page. I only used a contact form but most people are likely to want to be able call or send a proper email at their own convenience and so making the email address clear was important to me. For the bookshelf page I decided to not have the books as links to other pages because it felt unnecessary and instead to have a jquery ui dialog pop up with a book summary. The purpose of the bookshelf page is not to allow the user to buy books although this could be extended/added with server-side scripting but the purpose of the page was to list the companies published works. I used the google fonts for the fonts and found fonts there that worked well with the theme of the site and were similar to the fonts I originally planned to use.</p>
+                        <p>On the About page I changed my navigation to different pages to tabs because I felt that this was a tidier way of doing it that stopped the user loosing context and getting disorientated on the website. The number of pages was also unnecessary so this was a nice way of cutting it down. Other than the about page and the books being links on my bookshelf page by site layout and navigation changed very little if at all. I did add a page footer however once I changed my page layout. This allows for navigation to pages that aren’t really popular such as Privacy Policy but they are still pages that people might want to look at. On the footer I added another link to the contact page as it is very important that this is always easy to find and the social network links as it is important the company is easily accessible.</p>
+                    
+                    </div>
+                    <div id="tabs-2">
+                        <div>
+                            <h2>Julia Donaldson</h2>
+                            <p> <img src="images/juliaheadshot.png" class="authorImage" alt="Julia Donaldson"/>
+                                <b>Julia Donaldson</b> is the outrageously talented, prize-winning author of some of the world’s best-loved children’s books. Her first picture book, A Squash and A Squeeze, was published over twenty years ago, and since then she has written over 160 books, including the modern classic The Gruffalo. Julia also writes fiction, including the Princess Mirror-Belle series illustrated by Lydia Monks, as well as poems, plays and songs - and her brilliant live shows are always in demand. She was the 2011-2013 UK Children’s Laureate, has an MBE from the Queen and you can even find a painting of her in The National Portrait Gallery in London. Julia lives in Glasgow with her husband, Malcolm, and has four grandchildren.</p>
+                        </div>
+                        <div style="clear:both">
+                            <h2>Roald Dahl</h2>
+                            <p><img src="images/Roald_Dahl.jpg" class="authorImageLeft" alt="Roald Dahl"/>
+                                <b>Roald Dahl</b> is a novelist, short story writer, poet, fighter pilot and screenwriter.
+                                He rose to prominence in the 1940s with works for both children and adults and became one of the world's best-selling authors. He has been referred to as "one of the greatest storytellers for children of the 20th century". In 2008 The Times placed Dahl 16th on its list of "The 50 greatest British writers since 1945". His short stories are known for their unexpected endings and his children's books for their unsentimental, often very dark humour.
+                                Dahl's works include James and the Giant Peach, Charlie and the Chocolate Factory, Matilda, The Witches, Fantastic Mr Fox, The Twits, George's Marvellous Medicine and The BFG.</p>
+                        </div>
+                        <div  style="clear:both">
+                            <h2>J.K. Rowling</h2>
+                            <p><img src="images/rowlingHeadshot.png" class="authorImage" alt="J.K. Rowling"/>
+                                <b>J.K. Rowling</b> pen names J. K. Rowling and Robert Galbraith, is best known as the author of the Harry Potter fantasy series. The Potter books have gained worldwide attention, won multiple awards, and sold more than 400 million copies. They have become the best-selling book series in history, and been the basis for a series of films which has become the highest-grossing film series in history. Rowling had overall approval on the scripts and maintained creative control by serving as a producer on the final instalment.</p>
+                        </div>
+                    </div>
+                    <div id="tabs-3">
+                        <div>
+                            <h2>Axel Scheffler</h2>
+                            <p><img src="images/axelheadshot.png" class="authorImage" alt="Axel Scheffler"/>
+                                <b>Axel Scheffler</b> is the best-selling, award-winning illustrator of many of the world’s favourite picture books. Born in Hamburg, Axel moved to England over thirty years ago to study illustration. Perhaps best-known for his collaborations with Julia Donaldson, including the modern classic The Gruffalo, which has sold over five million copies worldwide and been translated into 50 languages, Axel has also illustrated novelty titles for younger readers such as Noisy Farm and The Bedtime Bear, as well as the Pip and Posy series. Axel lives in London with his partner and daughter.</p>
+                        </div>
+                        <div style="clear:both">
+                            <h2>Quentin Blake</h2>
+                            <p><img src="images/quentinHeadshot.png" class="authorImageLeft" alt="Quentin Blake"/>
+                                <b>Quentin Blake</b> may be known best for illustrating books written by Roald Dahl. For his lasting contribution as a children's illustrator he won the biennial, international Hans Christian Andersen Award in 2002, the highest recognition available to creators of children's books. From 1999 to 2001 he was the inaugural British Children's Laureate.</p>
+                        </div>
+                        <div style="clear:both">
+                            <h2>Cliff Wright</h2>
+                            <p><img src="images/cliffWright.png" class="authorImage" alt="Cliff Wright"/>
+                                <b>Cliff Wright</b> is a Sussex-based illustrator, painter, sculptor and teacher well-known for his work on two of the Harry Potter book covers.  His Illustration work has been published all over the world and most recently he has devoted time to his lifelong passion for sculpture. He has a wealth of teaching experience and his Nature of Seeing series of workshops and courses are highly regarded.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                <p id="copy">&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </body>   
+</html>

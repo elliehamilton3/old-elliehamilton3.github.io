@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Sitemap</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#ACDDEB;
+            }
+            #content{
+                top:-30px;
+            }
+  
+        </style>
+        <script>
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";    
+                    document.getElementsByTagName("body")[0].style.color = "yellow";  
+                    $(".sitem").css("color", "yellow");
+            }
+            function toggleContrast(){
+                if(!on){
+                    on=true;
+                    setContrast(on);
+                    contrastCookie(on);
+                }
+                else{
+                    on=false;
+                    document.getElementsByTagName("body")[0].style.background = "#ACDDEB";  
+                    document.getElementsByTagName("body")[0].style.color = "black";  
+                    $(".sitem").css("color", "black");
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html" style="color:#FAE480">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/cry-wolf.png" alt="" width="1100" />
+                </div>
+
+            </div>
+            <div id="content">
+                <h1>Sitemap</h1>
+                <div id="sitemap">
+                    <ul>
+                        <li><a class="sitem" href="Home.html">Home</a></li>               
+                        <li><a class="sitem" href="About.html" >About Us</a></li>
+                        <li><a class="sitem" href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a class="sitem" href="Events.html">Events</a></li>
+                        <li><a class="sitem" href="Jobs.html" >Jobs</a></li>
+                        <li><a class="sitem" href="Contact.html">Contact us</a>
+                        <ul>
+                            <li><a class="sitem" href="Terms.html" >T's &#38; C's</a></li>
+                            <li><a href="Sitemap.html" style="color:#0000cd">Sitemap</a></li>
+                            <li><a class="sitem" href="Cookies.html" >Cookies</a></li>
+                            <li><a class="sitem" href="Privacypolicy.html">Privacy Policy</a></li>
+                            </ul></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div id="footer-bottom">
+                 <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                 <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

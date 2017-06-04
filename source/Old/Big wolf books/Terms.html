@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Big Wolf Books | Terms &#38; Conditions</title>
+        <link rel="icon"  href="images/pageIcon.ico" type="image/x-icon"/>
+        <link type="text/css" href="css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript" src="js/myJS.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Henny+Penny|Rosario' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                background:#ACDDEB;
+            }
+            #content{
+                top:-30px;
+            }            
+            #content a{
+                color:#0000cd;
+                text-decoration:none;
+                font-weight:bold;
+            }
+        </style>
+        <script>
+            var on = false;
+            function setContrast(){
+                document.getElementsByTagName("body")[0].style.background = "black";
+                document.getElementsByTagName("body")[0].style.color = "yellow";
+            }
+            function toggleContrast() {
+                if (!on) {
+                    on = true;
+                    setContrast();
+                    contrastCookie(on);
+                }
+                else {
+                    on = false;
+                    document.getElementsByTagName("body")[0].style.background = "#ACDDEB";
+                    document.getElementsByTagName("body")[0].style.color = "black";
+                    contrastCookie(on);
+                }
+            }
+        </script>
+    </head>
+    <body onload="cookieload()">
+        <div id="background">
+            <div id="header">
+                
+                <div id="nav">
+                    <ul>
+                        <li><a href="Home.html" >Home</a></li>
+                        <li><a href="About.html" >About Us</a></li>
+                        <li><a href="Bookshelf.html">Bookshelf</a></li>
+                        <li><a href="Home.html"><img src="images/logo.png" id="logo" width="292" height="278" alt="Big Wolf Books Logo"/></a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="Jobs.html" >Jobs</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div id="topImage" >
+                    <img src="images/cry-wolf.png" alt="" width="1100" />
+                </div>
+
+            </div>
+            <div id="content">
+                <h1>Terms &#38; Conditions</h1>
+                <p>By using this website you agree to use it in the way that we ask you to. If you do not agree to these conditions, please do not use this website. We may change these conditions at any time, so please check them each time you visit this website.</p>
+
+                <h4>Your use of our website</h4>
+
+                <p>You can only use this website for your personal use. The information on this website is only designed for you to look at when you visit the website. You must not download, copy or sell, this website without asking our permission first. You also must not change anything on this website.</p>
+
+                <h4>Links to other websites</h4>
+
+                <p>This website may include links to other websites which are run by other people. These links do not mean that we agree with the information on those websites nor that we have any control over those websites. If you are worried or concerned about any of those websites you should contact the person who runs the website.</p>
+
+
+                <h4>Your Privacy</h4>
+
+                <p>We take your privacy very seriously. Please read our <a href="Privacypolicy.html">Privacy Policy</a>. It will help you to understand how we will use the information you give us about yourself. By using our website, you are agreeing that we can use your personal information as it says in our <a href="Privacypolicy.html">Privacy Policy</a>.</p>
+
+                <p>Like most other websites, we use cookies or pop-ups. Please read our Privacy Policy  which also contains details of the cookies we use. By using our website you are agreeing to us using cookies in the ways described in our Privacy Policy.</p>
+
+                <h4>Our responsibility to you</h4>
+
+                <p>We can't promise that this website will always be available or that it won't have any mistakes in it. We also don't promise that this website will be free of computer viruses or anything else which might harm your computer. The information in this website is also not supposed to be advice, so please don't rely on anything you read on this website.</p>
+
+                <p>So far as we are legally allowed to do so, we don't accept any responsibility for any loss or damage which results from anyone's use, or inability to use any part of this website.</p>
+
+                <p>If you are worried or concerned about anything on the website, please let us know by emailing us at: eh14g13@soton.ac.uk.</p>
+
+                <h4>Governing law</h4>
+
+                <p>These Terms and Conditions are governed by English law.</p>
+
+                <h4>When were these Terms of Use last updated?</h4>
+
+                <p>[30 April 2014]</p>
+
+                <p>Thank you!</p>
+
+
+            </div>
+
+            <div id="footer-bottom">
+                <button id="contrast" type="button" name="contrast" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" onclick="toggleContrast()">Toggle contrast ratio</button>
+                <div id="SNlinks">                    
+                    <table>
+                        <tr>
+                            <td><a href="http://www.facebook.com" ><img id="faceicon" src="images/facebook.png" alt="Facebook" width="45" height="45"/></a></td>
+                            <td><a href="http://www.twitter.com" ><img id="twitticon" src="images/twitter.png" alt="Twitter" width="47" height="47"/></a></td>
+                            <td><a href="http://www.linkedin.com" ><img id="lknicon" src="images/linkedin.png" alt="Linkedin" width="45" height="45"/></a></td>
+                        </tr>
+                    </table>
+                </div>                
+                <p>&#169; Ellie Hamilton 2014 </p>
+                <ul>
+                    <li><a href="Terms.html" >T's &#38; C's</a></li>
+                    <li><a href="Sitemap.html" >Sitemap</a></li>
+                    <li><a href="Cookies.html" >Cookies</a></li>
+                    <li><a href="Privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>
